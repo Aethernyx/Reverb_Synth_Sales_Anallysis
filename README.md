@@ -8,7 +8,7 @@ I analyze the data and make inferences based on my analysis using pandas, matplo
 # Requirements
 
 <ul>
-<li>Python 2.7</li>
+<li>Python 3.8</li>
 <li>Selenium</li>
 <li>Beautiful Soup</li>
 <li>re</li>
