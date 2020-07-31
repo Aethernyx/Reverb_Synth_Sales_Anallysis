@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Synthesizer Price</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="brand" placeholder="Brand" required="required" />
+
+        <label for="synth_condition">Synth Condition:</label>
+        <select name="synth_condition">
+            <option value="Brand New">Brand New</option>
+            <option value="Mint">Mint</option>
+            <option value="Excellent">Excellent</option>
+            <option value="Very Good">Very Good</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Non Functioning">Non Functioning</option>
+        </select>
+
+        <input type="text" name="model" placeholder="Model" required="required" />
+
+        <label for="synth_type">Synth Type:</label>
+        <select name="synth_type">
+            <option value="Analog Synth">Analog Synth</option>
+            <option value="Digital Synth">Digital Synth</option>
+            <option value="Modular Synth">Modular Synth</option>
+            <option value="Eurorack">Eurorack</option>
+            <option value="Digital Piano">Digital Piano</option>
+            <option value="Organ">Organ</option>
+            <option value="Rackmount Synth">Rackmount Synth</option>
+            <option value="Synth">Other Synth</option>
+            <option value="Pedal">Pedal</option>
+            <option value="Signal Generator">Signal Generator</option>
+            <option value="case">Synth Case</option>
+            <option value="Controller">Controller</option>
+            <option value="Keyboard Parts">Keyboard Parts</option>
+        </select>
+
+        <label for="number_of_keys">Number of Keys:</label>
+        <select name="number_of_keys">
+            <option value="0">0</option>
+            <option value="25">25</option>
+            <option value="32">32</option>
+            <option value="37">37</option>
+            <option value="44">44</option>
+            <option value="49">49</option>
+            <option value="61">61</option>
+            <option value="76">76</option>
+            <option value="88">88</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
